@@ -25,7 +25,7 @@ Avatar.Image = function AvatarImage({
   width = 32,
   height = 32,
   ...props
-}: ImageProps) {
+}: ImageProps & { name?: string }) {
   if (!src && !name) {
     return <Avatar.Fallback />
   }
