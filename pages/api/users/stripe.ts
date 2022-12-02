@@ -51,6 +51,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
       return res.json({ url: stripeSession.url })
     } catch (error) {
+      console.log('[error]:', error)
       return res.status(500).end()
     }
   }
