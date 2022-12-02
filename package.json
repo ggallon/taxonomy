@@ -1,4 +1,5 @@
 {
+  "name": "geticon",
   "private": true,
   "workspaces": [
     "apps/*",
