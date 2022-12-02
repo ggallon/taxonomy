@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { Readable } from "node:stream";
+import { Readable } from "node:stream"
 import Stripe from "stripe"
 
 import { stripe } from "@/lib/stripe"
@@ -13,17 +13,17 @@ export const config = {
 }
 
 async function buffer(readable: Readable) {
-  const chunks = [];
+  const chunks = []
   for await (const chunk of readable) {
-    chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk);
+    chunks.push(typeof chunk === "string" ? Buffer.from(chunk) : chunk)
   }
-  return Buffer.concat(chunks);
+  return Buffer.concat(chunks)
 }
 
 const relevantEvents = new Set([
   "checkout.session.completed",
   "invoice.payment_succeeded",
-]);
+])
 
 export default async function handler(
   req: NextApiRequest,
@@ -31,11 +31,11 @@ export default async function handler(
 ) {
   // POST /api/webhooks/stripe – listen to Stripe webhooks
   if (req.method !== "POST") {
-    res.setHeader("Allow", ["POST"]);
-    return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
+    res.setHeader("Allow", ["POST"])
+    return res.status(405).json({ error: `Method ${req.method} Not Allowed` })
   }
 
-  const body = await buffer(req);
+  const body = await buffer(req)
   const signature = req.headers["stripe-signature"]
 
   let event: Stripe.Event
@@ -48,11 +48,15 @@ export default async function handler(
     )
   } catch (error) {
     console.error(error)
-    return res.status(400).send('Webhook error: Webhook handler failed. View logs.')
+    return res
+      .status(400)
+      .send("Webhook error: Webhook handler failed. View logs.")
   }
 
   if (!relevantEvents.has(event.type)) {
-    return res.status(400).send(`Webhook error: 🤷‍♀️ Unhandled event type: ${event.type}`);
+    return res
+      .status(400)
+      .send(`Webhook error: 🤷‍♀️ Unhandled event type: ${event.type}`)
   }
 
   const session = event.data.object as Stripe.Checkout.Session
@@ -101,5 +105,5 @@ export default async function handler(
     })
   }
 
-  return res.json({ received: true });
+  return res.json({ received: true })
 }
