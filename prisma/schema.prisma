@@ -24,13 +24,12 @@ model Account {
   scope             String?
   id_token          String?  @db.Text
   session_state     String?
-  createdAt         DateTime @default(now()) @map(name: "created_at")
-  updatedAt         DateTime @default(now()) @map(name: "updated_at")
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @default(now())
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-  @@map(name: "accounts")
 }
 
 model Session {
@@ -39,8 +38,6 @@ model Session {
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@map(name: "sessions")
 }
 
 model User {
@@ -49,19 +46,17 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @default(now()) @map(name: "updated_at")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now())
 
   accounts Account[]
   sessions Session[]
   Post     Post[]
 
-  stripeCustomerId       String?   @unique @map(name: "stripe_customer_id")
-  stripeSubscriptionId   String?   @unique @map(name: "stripe_subscription_id")
-  stripePriceId          String?   @map(name: "stripe_price_id")
-  stripeCurrentPeriodEnd DateTime? @map(name: "stripe_current_period_end")
-
-  @@map(name: "users")
+  stripeCustomerId       String?   @unique
+  stripeSubscriptionId   String?   @unique
+  stripePriceId          String?
+  stripeCurrentPeriodEnd DateTime?
 }
 
 model VerificationToken {
@@ -70,7 +65,6 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
-  @@map(name: "verification_tokens")
 }
 
 model Post {
@@ -78,11 +72,9 @@ model Post {
   title     String
   content   Json?
   published Boolean  @default(false)
-  createdAt DateTime @default(now()) @map(name: "created_at")
-  updatedAt DateTime @default(now()) @map(name: "updated_at")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
   authorId  String
 
   author User @relation(fields: [authorId], references: [id])
-
-  @@map(name: "posts")
 }
