@@ -1,0 +1,43 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "build": {
+      "outputs": [".next/**", "dist/**"]
+    },
+    "markt#build": {
+      "dependsOn": ["^build"],
+      "env": [
+        "NODE_ENV",
+        "NEXT_PUBLIC_APP_URL",
+        "NEXTAUTH_SECRET",
+        "DATABASE_URL",
+        "GITHUB_CLIENT_ID",
+        "GITHUB_CLIENT_SECRET",
+        "POSTMARK_API_TOKEN",
+        "POSTMARK_SIGN_IN_TEMPLATE",
+        "POSTMARK_ACTIVATION_TEMPLATE",
+        "SMTP_HOST",
+        "SMTP_PORT",
+        "SMTP_USER",
+        "SMTP_PASSWORD",
+        "SMTP_FROM",
+        "STRIPE_API_KEY",
+        "STRIPE_WEBHOOK_SECRET",
+        "STRIPE_PRO_MONTHLY_PLAN_ID"
+      ],
+      "outputs": [".contentlayer/**", ".next/**"]
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    },
+    "start": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}
