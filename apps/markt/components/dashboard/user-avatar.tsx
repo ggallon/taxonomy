@@ -11,7 +11,7 @@ interface UserAvatarProps extends AvatarProps {
 export function UserAvatar({ user, ...props }: UserAvatarProps) {
   return (
     <Avatar {...props}>
-      <Avatar.Image alt="Picture" src={user.image} />
+      <Avatar.Image alt="Avatar" src={user.image} name={user.name} />
       <Avatar.Fallback>
         <span className="sr-only">{user.name}</span>
         <Icons.user className="h-4 w-4" />

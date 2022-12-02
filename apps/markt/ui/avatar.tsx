@@ -19,14 +19,19 @@ export function Avatar({ className, ...props }: AvatarProps) {
 
 Avatar.Image = function AvatarImage({
   src,
+  name,
   className,
   alt,
   width = 32,
   height = 32,
   ...props
 }: ImageProps) {
-  if (!src) {
+  if (!src && !name) {
     return <Avatar.Fallback />
+  }
+
+  if (!src && name) {
+    src = `https://avatar.vercel.sh/${name.toLowerCase()}?size=64`
   }
 
   return (
