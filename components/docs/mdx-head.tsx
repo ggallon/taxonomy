@@ -20,7 +20,7 @@ export default function MdxHead({ params, og }: MdxHeadProps) {
   }
 
   const title = `${mdxDoc.title} - Taxonomy`
-  const url = "https://markt.vercel.app"
+  const url = process.env.NEXT_PUBLIC_APP_URL
   let ogUrl = new URL(`${url}/og.jpg`)
 
   const ogTitle = og?.heading || mdxDoc.title
