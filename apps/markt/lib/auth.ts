@@ -59,7 +59,7 @@ export const authOptions: NextAuthOptions = {
           From: provider.from,
           TemplateModel: {
             action_url: url,
-            product_name: "Taxonomy",
+            product_name: "Markt",
           },
           Headers: [
             {
