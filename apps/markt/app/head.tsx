@@ -10,12 +10,10 @@ export default function Head() {
       />
 
       <meta property="og:title" content="Markt" />
-      <meta property="og:type" content="website" />
       <meta property="og:url" content="https://markt.vercel.app" />
       <meta property="og:image" content="https://markt.vercel.app/og.jpg" />
       <meta name="twitter:title" content="Markt" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:url" content="https://markt.vercel.app" />
       <meta name="twitter:image" content="https://markt.vercel.app/og.jpg" />
     </>
   )
