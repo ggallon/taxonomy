@@ -6,18 +6,15 @@ import { siteConfig } from "@/config/site"
 
 async function getGitHubStars(): Promise<string | null> {
   try {
-    const response = await fetch(
-      "https://api.github.com/repos/ggallon/markt",
-      {
-        headers: {
-          Accept: "application/vnd.github+json",
-          Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
-        },
-        next: {
-          revalidate: 60,
-        },
-      }
-    )
+    const response = await fetch("https://api.github.com/repos/ggallon/markt", {
+      headers: {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
+      },
+      next: {
+        revalidate: 60,
+      },
+    })
 
     if (!response?.ok) {
       return null
@@ -177,8 +174,8 @@ export default async function IndexPage() {
             Proudly Open Source
           </h2>
           <p className="max-w-[85%] leading-normal text-slate-700 sm:text-lg sm:leading-7">
-            Markt is open source and powered by open source software. The
-            code is available on{" "}
+            Markt is open source and powered by open source software. The code
+            is available on{" "}
             <Link
               href={siteConfig.links.github}
               target="_blank"
