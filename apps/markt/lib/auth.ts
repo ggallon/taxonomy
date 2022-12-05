@@ -5,6 +5,7 @@ import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { Client } from "postmark"
 
 import { db } from "@/lib/db"
+import { siteConfig } from "@/config/site"
 
 const postmarkClient = new Client(process.env.POSTMARK_API_TOKEN)
 
@@ -61,7 +62,7 @@ export const authOptions: NextAuthOptions = {
           From: provider.from,
           TemplateModel: {
             action_url: url,
-            product_name: "Markt",
+            product_name: siteConfig.name,
           },
           Headers: [
             {
