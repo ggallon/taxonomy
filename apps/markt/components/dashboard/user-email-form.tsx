@@ -114,7 +114,7 @@ export function UserEmailForm({
             )}
           </div>
         </Card.Content>
-        <Card.Footer className="">
+        <Card.Footer>
           {isChanged && (
             <button
               id="cancel"

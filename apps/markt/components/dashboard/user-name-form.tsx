@@ -99,7 +99,7 @@ export function UserNameForm({ user, className, ...props }: UserNameFormProps) {
           <button
             type="submit"
             className={cn(
-              "relative inline-flex h-9 items-center rounded-md border border-transparent bg-brand-500 px-4 py-2 text-sm font-medium text-white hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2",
+              "relative inline-flex h-8 items-center rounded-md border border-transparent bg-brand-500 px-3 py-2 text-sm font-medium text-white hover:bg-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2",
               {
                 "cursor-not-allowed opacity-60": isSaving,
               }
