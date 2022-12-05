@@ -4,6 +4,7 @@ import { getCurrentUser } from "@/lib/session"
 import { authOptions } from "@/lib/auth"
 import { DashboardHeader } from "@/components/dashboard/header"
 import { DashboardShell } from "@/components/dashboard/shell"
+import { UserEmailForm } from "@/components/dashboard/user-email-form"
 import { UserNameForm } from "@/components/dashboard/user-name-form"
 
 export default async function SettingsPage() {
@@ -21,6 +22,10 @@ export default async function SettingsPage() {
       />
       <div className="grid gap-10">
         <UserNameForm user={{ id: user.id, name: user.name }} />
+        <UserEmailForm
+          className="mb-8"
+          user={{ id: user.id, email: user.email }}
+        />
       </div>
     </DashboardShell>
   )

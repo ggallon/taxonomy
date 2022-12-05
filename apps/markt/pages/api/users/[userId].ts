@@ -5,7 +5,7 @@ import { unstable_getServerSession } from "next-auth/next"
 import { db } from "@/lib/db"
 import { withMethods } from "@/lib/api-middlewares/with-methods"
 import { withCurrentUser } from "@/lib/api-middlewares/with-current-user"
-import { userNameSchema } from "@/lib/validations/user"
+import { userEmailSchema, userNameSchema } from "@/lib/validations/user"
 import { authOptions } from "@/lib/auth"
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -25,6 +25,19 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
           },
           data: {
             name: payload.name,
+          },
+        })
+      }
+
+      if (body?.email) {
+        const payload = userEmailSchema.parse(body)
+
+        await db.user.update({
+          where: {
+            id: user.id,
+          },
+          data: {
+            email: payload.email,
           },
         })
       }
