@@ -119,7 +119,7 @@ export function UserEmailForm({
             <button
               id="cancel"
               type="reset"
-              className="relative inline-flex h-8 items-center rounded-md border border-transparent bg-slate-50 px-3 py-2 text-sm font-medium text-gray-500 hover:text-black focus:text-black focus:outline-none focus:ring-0 focus:ring-transparent focus:ring-offset-0"
+              className="relative inline-flex h-8 items-center rounded-md border border-transparent bg-slate-50 px-3 py-2 text-sm font-medium text-gray-500 hover:text-slate-900 focus:text-slate-900 focus:outline-none focus:ring-0 focus:ring-transparent focus:ring-offset-0"
               onClick={(event) => {
                 event.preventDefault()
                 setValue("email", user.email, {
