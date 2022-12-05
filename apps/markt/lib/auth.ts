@@ -41,6 +41,7 @@ export const authOptions: NextAuthOptions = {
         },
       },
       from: process.env.SMTP_FROM,
+      maxAge: 30 * 60, // How long email links are valid for (default 30min)
       sendVerificationRequest: async ({ identifier, url, provider }) => {
         const user = await db.user.findUnique({
           where: {
