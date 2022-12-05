@@ -4,17 +4,9 @@ import EmailProvider from "next-auth/providers/email"
 import { PrismaAdapter } from "@next-auth/prisma-adapter"
 import { Client } from "postmark"
 
-import { db } from "@/lib/db"
 import { siteConfig } from "@/config/site"
-
-const postmarkClient = new Client(process.env.POSTMARK_API_TOKEN)
-
-const POSTMARK_SIGN_IN_TEMPLATE = parseInt(
-  process.env.POSTMARK_SIGN_IN_TEMPLATE
-)
-const POSTMARK_ACTIVATION_TEMPLATE = parseInt(
-  process.env.POSTMARK_ACTIVATION_TEMPLATE
-)
+import { db } from "@/lib/db"
+import { sendEmailWithTemplate } from "@/lib/email"
 
 export const authOptions: NextAuthOptions = {
   // huh any! I know.
@@ -34,14 +26,6 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
     EmailProvider({
-      server: {
-        host: process.env.SMTP_HOST,
-        port: Number(process.env.SMTP_PORT),
-        auth: {
-          user: process.env.SMTP_USER,
-          pass: process.env.SMTP_PASSWORD,
-        },
-      },
       from: process.env.SMTP_FROM,
       maxAge: 30 * 60, // How long email links are valid for (default 30min)
       sendVerificationRequest: async ({ identifier, url, provider }) => {
@@ -53,30 +37,16 @@ export const authOptions: NextAuthOptions = {
             emailVerified: true,
           },
         })
+        const templateEmailId = user?.emailVerified
+          ? process.env.POSTMARK_SIGN_IN_TEMPLATE
+          : process.env.POSTMARK_ACTIVATION_TEMPLATE
 
-        const result = await postmarkClient.sendEmailWithTemplate({
-          TemplateId: user?.emailVerified
-            ? POSTMARK_SIGN_IN_TEMPLATE
-            : POSTMARK_ACTIVATION_TEMPLATE,
-          To: identifier,
-          From: provider.from,
-          TemplateModel: {
-            action_url: url,
-            product_name: siteConfig.name,
-          },
-          Headers: [
-            {
-              // Set this to prevent Gmail from threading emails.
-              // See https://stackoverflow.com/questions/23434110/force-emails-not-to-be-grouped-into-conversations/25435722.
-              Name: "X-Entity-Ref-ID",
-              Value: new Date().getTime() + "",
-            },
-          ],
+        await sendEmailWithTemplate({
+          templateId: parseInt(templateEmailId),
+          toEmail: identifier,
+          fromEmail: provider.from,
+          url: url,
         })
-
-        if (result.ErrorCode) {
-          throw new Error(result.Message)
-        }
       },
     }),
   ],
