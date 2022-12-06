@@ -29,7 +29,7 @@ importers:
   apps/markt:
     specifiers:
       '@editorjs/code': 2.8.0
-      '@editorjs/editorjs': 2.26.1
+      '@editorjs/editorjs': 2.26.2
       '@editorjs/embed': 2.5.3
       '@editorjs/header': 2.7.0
       '@editorjs/inline-code': 1.4.0
@@ -46,7 +46,7 @@ importers:
       '@radix-ui/react-dropdown-menu': 2.0.1
       '@radix-ui/react-popover': 1.0.2
       '@radix-ui/react-toggle': 1.0.1
-      '@types/node': 18.11.10
+      '@types/node': 18.11.11
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.9
       '@vercel/analytics': 0.1.5
@@ -89,7 +89,7 @@ importers:
       zod: 3.19.1
     dependencies:
       '@editorjs/code': 2.8.0
-      '@editorjs/editorjs': 2.26.1
+      '@editorjs/editorjs': 2.26.2
       '@editorjs/embed': 2.5.3
       '@editorjs/header': 2.7.0
       '@editorjs/inline-code': 1.4.0
@@ -120,7 +120,7 @@ importers:
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
-      react-editor-js: 2.1.0_wyucquujak3k2pld6n5qqadl24
+      react-editor-js: 2.1.0_atbnr2cgc2qeglxztmti22uv2i
       react-hook-form: 7.40.0_react@18.2.0
       react-hot-toast: 2.4.0_biqbaboplfbrettd7655fr4n2y
       react-textarea-autosize: 8.4.0_kzbn2opkn2327fwg5yzwzya5o4
@@ -130,7 +130,7 @@ importers:
       tailwind-merge: 1.8.0
       zod: 3.19.1
     devDependencies:
-      '@types/node': 18.11.10
+      '@types/node': 18.11.11
       '@types/react': 18.0.26
       '@types/react-dom': 18.0.9
       autoprefixer: 10.4.13_postcss@8.4.19
@@ -506,8 +506,8 @@ packages:
       '@codexteam/icons': 0.0.5
     dev: false
 
-  /@editorjs/editorjs/2.26.1:
-    resolution: {integrity: sha512-sm1GQJ/B50CcF5xAO2MLgNPflR5b2B+qzazAvBZTot/+7dcKbtm8Az2zUiOyBOOcXHCgg1XFdpU5plBL58CYPQ==}
+  /@editorjs/editorjs/2.26.2:
+    resolution: {integrity: sha512-7oKPWG/Oc6RF0AN1VccuBZMoQ4g/YoAfJvmo2RGjmmMpPT3sPC8a6X4XYetfYbjHfSyJ5E3pARRn9DzJQ6SHcg==}
     dependencies:
       '@codexteam/icons': 0.0.4
       codex-notifier: 1.1.2
@@ -697,7 +697,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.3
-      '@types/node': 18.11.10
+      '@types/node': 18.11.11
     dev: false
 
   /@grpc/proto-loader/0.6.13:
@@ -1631,39 +1631,39 @@ packages:
       '@babel/runtime': 7.20.6
     dev: false
 
-  /@react-editor-js/client/2.1.0_wyucquujak3k2pld6n5qqadl24:
+  /@react-editor-js/client/2.1.0_atbnr2cgc2qeglxztmti22uv2i:
     resolution: {integrity: sha512-X/OwqY2KKUUVIy24zvubHTI4qhiVIWMxGlU/Bc6tkf9gcsWgQjPvn75DwrQ5SIGBOYpSBcHY01JX0RRtJHRumw==}
     peerDependencies:
       '@editorjs/editorjs': '*'
       '@editorjs/paragraph': '*'
       react: '*'
     dependencies:
-      '@editorjs/editorjs': 2.26.1
+      '@editorjs/editorjs': 2.26.2
       '@editorjs/paragraph': 2.9.0
-      '@react-editor-js/core': 2.1.0_lcodhbxsuusvirm4v6ompty42y
+      '@react-editor-js/core': 2.1.0_ovic4dt7y5nxqppox3qd77owiu
       react: 18.2.0
     dev: false
 
-  /@react-editor-js/core/2.1.0_lcodhbxsuusvirm4v6ompty42y:
+  /@react-editor-js/core/2.1.0_ovic4dt7y5nxqppox3qd77owiu:
     resolution: {integrity: sha512-6h98D5g2RatdCDQRW/+N+eiMtjoq0n1n02m8oA7FrlEzEaOUyV+J+rmtmRS8OexLVOiNeWaSPDpVJ3MNiVLq8Q==}
     peerDependencies:
       '@editorjs/editorjs': '*'
       react: '*'
     dependencies:
-      '@editorjs/editorjs': 2.26.1
+      '@editorjs/editorjs': 2.26.2
       react: 18.2.0
     dev: false
 
-  /@react-editor-js/server/2.1.0_wyucquujak3k2pld6n5qqadl24:
+  /@react-editor-js/server/2.1.0_atbnr2cgc2qeglxztmti22uv2i:
     resolution: {integrity: sha512-RnTbCmzCHbjcjPNKhr9FaehItHgAZyd47Lq+iIGynFqWSsrwGy46LgOXSvb50DYbwDyT0GtxaXBIk6aiFki1Dg==}
     peerDependencies:
       '@editorjs/editorjs': '*'
       '@editorjs/paragraph': '*'
       react: '*'
     dependencies:
-      '@editorjs/editorjs': 2.26.1
+      '@editorjs/editorjs': 2.26.2
       '@editorjs/paragraph': 2.9.0
-      '@react-editor-js/core': 2.1.0_lcodhbxsuusvirm4v6ompty42y
+      '@react-editor-js/core': 2.1.0_ovic4dt7y5nxqppox3qd77owiu
       react: 18.2.0
     dev: false
 
@@ -1785,8 +1785,8 @@ packages:
     resolution: {integrity: sha512-hcU9AIQVHmPnmjRK+XUUYlILlr9pQrsqSrwov/JK1pnf3GTQowVBhx54FbvM0AU/VXGH4i3+vgXS5EguR7fysA==}
     dev: true
 
-  /@types/node/18.11.10:
-    resolution: {integrity: sha512-juG3RWMBOqcOuXC643OAdSA525V44cVgGV6dUDuiFtss+8Fk5x1hI93Rsld43VeJVIeqlP9I7Fn9/qaVqoEAuQ==}
+  /@types/node/18.11.11:
+    resolution: {integrity: sha512-KJ021B1nlQUBLopzZmPBVuGU9un7WJd/W4ya7Ih02B4Uwky5Nja0yGYav2EfYIk0RR2Q9oVhf60S2XR1BCWJ2g==}
 
   /@types/normalize-package-data/2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -5696,7 +5696,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 18.11.10
+      '@types/node': 18.11.11
       long: 4.0.0
     dev: false
 
@@ -5715,7 +5715,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 18.11.10
+      '@types/node': 18.11.11
       long: 5.2.1
     dev: false
 
@@ -5775,12 +5775,12 @@ packages:
       scheduler: 0.23.0
     dev: false
 
-  /react-editor-js/2.1.0_wyucquujak3k2pld6n5qqadl24:
+  /react-editor-js/2.1.0_atbnr2cgc2qeglxztmti22uv2i:
     resolution: {integrity: sha512-unI9D2pTH/2gBenc6LgCXJm8iqnrzB71CHgfjQmaB+lGR0Njx+ZXydgUQm1VofMmvF6vcCNVDE1Eb47zQbm14g==}
     dependencies:
-      '@react-editor-js/client': 2.1.0_wyucquujak3k2pld6n5qqadl24
-      '@react-editor-js/core': 2.1.0_lcodhbxsuusvirm4v6ompty42y
-      '@react-editor-js/server': 2.1.0_wyucquujak3k2pld6n5qqadl24
+      '@react-editor-js/client': 2.1.0_atbnr2cgc2qeglxztmti22uv2i
+      '@react-editor-js/core': 2.1.0_ovic4dt7y5nxqppox3qd77owiu
+      '@react-editor-js/server': 2.1.0_atbnr2cgc2qeglxztmti22uv2i
     transitivePeerDependencies:
       - '@editorjs/editorjs'
       - '@editorjs/paragraph'
@@ -6441,7 +6441,7 @@ packages:
     resolution: {integrity: sha512-erOslPQZSYKOotQjmKRy4eBon/tdhzLIYzBdPSNVWDdatSQozkkPlh8mVeXNwubYYZYx61/yS23eWiGDF93z2w==}
     engines: {node: '>=12.*'}
     dependencies:
-      '@types/node': 18.11.10
+      '@types/node': 18.11.11
       qs: 6.11.0
     dev: false
 

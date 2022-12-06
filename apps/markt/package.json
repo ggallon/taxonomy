@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@editorjs/code": "2.8.0",
-    "@editorjs/editorjs": "2.26.1",
+    "@editorjs/editorjs": "2.26.2",
     "@editorjs/embed": "2.5.3",
     "@editorjs/header": "2.7.0",
     "@editorjs/inline-code": "1.4.0",
@@ -54,7 +54,7 @@
     "zod": "3.19.1"
   },
   "devDependencies": {
-    "@types/node": "18.11.10",
+    "@types/node": "18.11.11",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
     "autoprefixer": "10.4.13",
